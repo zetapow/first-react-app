@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
+import { MyButton, AboutPage } from './button';
 import './App.css';
 
 function App() {
@@ -10,32 +11,36 @@ function App() {
       <div>
          <h1>Hello from React</h1>
          <p>This is my first component</p>
+         <AboutPage />
+         <MyButton />
+         <MyButton />
+         <Profile />
          <h1>Count: {count}</h1>
          <button onClick={() => setCount(count + 1)}>+1</button>
       </div>
+   );
+}
 
-      //   <>
-      //     <div>
-      //       <a href="https://vite.dev" target="_blank">
-      //         <img src={viteLogo} className="logo" alt="Vite logo" />
-      //       </a>
-      //       <a href="https://react.dev" target="_blank">
-      //         <img src={reactLogo} className="logo react" alt="React logo" />
-      //       </a>
-      //     </div>
-      //     <h1>Vite + React</h1>
-      //     <div className="card">
-      //       <button onClick={() => setCount((count) => count + 1)}>
-      //         count is {count}
-      //       </button>
-      //       <p>
-      //         Edit <code>src/App.jsx</code> and save to test HMR
-      //       </p>
-      //     </div>
-      //     <p className="read-the-docs">
-      //       Click on the Vite and React logos to learn more
-      //     </p>
-      //   </>
+const user = {
+   name: 'Hedy Lamarr',
+   imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+   imageSize: 90,
+};
+
+export function Profile() {
+   return (
+      <>
+         <h1>{user.name}</h1>
+         <img
+            className="avatar"
+            src={user.imageUrl}
+            alt={'Photo of ' + user.name}
+            style={{
+               width: user.imageSize,
+               height: user.imageSize,
+            }}
+         />
+      </>
    );
 }
 
